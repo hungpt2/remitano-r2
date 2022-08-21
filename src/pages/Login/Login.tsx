@@ -6,7 +6,7 @@ import { useBaseDispatch } from '../../context/base';
 import { IUser } from '../../model/user';
 import { login } from '../../services/auth';
 
-export const Login = (): JSX.Element => {
+export const Login = (props: any): JSX.Element => {
   const baseDispatch = useBaseDispatch();
 
   let navigate = useNavigate();
@@ -32,7 +32,7 @@ export const Login = (): JSX.Element => {
     ]
   });
 
-  const onChange = (key: string, value: string) => {
+  const onChange = (key: string, value: React.SyntheticEvent<HTMLInputElement>) => {
     setFormUser({
       ...formUser,
       [key]: value,
@@ -74,17 +74,17 @@ export const Login = (): JSX.Element => {
   return (
     <div className='max-w-xl mt-16 mx-auto bg-slate-200 rounded drop-shadow-md p-5 my-5'>
       <h2 className="mb-5">Login</h2>
-      <Loading loading={loading}>
-        <Form ref={formRef} model={formUser} labelWidth='150' rules={formRules}>
-          <Form.Item label='Email' prop='email'>
-            <Input value={formUser.email} onChange={(value: string) => onChange('email', value)}></Input>
+      <Loading loading={loading} { ...props }>
+        <Form {...props} ref={formRef} model={formUser} labelWidth='150' rules={formRules}>
+          <Form.Item {...props} label='Email' prop='email'>
+            <Input value={formUser.email} onChange={(value: React.SyntheticEvent<HTMLInputElement>) => onChange('email', value)}></Input>
           </Form.Item>
-          <Form.Item label='Password' prop='password'>
-            <Input className='w-full' type='password' value={formUser.password} onChange={(value: string) => onChange('password', value)}></Input>
+          <Form.Item {...props} label='Password' prop='password'>
+            <Input className='w-full' type='password' value={formUser.password} onChange={(value: React.SyntheticEvent<HTMLInputElement>) => onChange('password', value)}></Input>
           </Form.Item>
           <div className='flex justify-between items-center'>
-            <Button onClick={() => onRedirect('/')}>Back to Dashboard</Button>
-            <Button type='primary' onClick={() => onLogin()}>Login</Button>
+            <Button {...props} onClick={() => onRedirect('/')}>Back to Dashboard</Button>
+            <Button {...props} type='primary' onClick={() => onLogin()}>Login</Button>
           </div>
         </Form>
       </Loading>

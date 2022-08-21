@@ -1,6 +1,7 @@
 {
   "name": "your-project-folder",
   "private": true,
+  "homepage": "https://hungpt2.github.io/remitano-r2",
   "version": "0.0.0",
   "type": "module",
   "license": "MIT",
@@ -9,6 +10,8 @@
     "test": "jest --coverage",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "tailwind": "npx tailwindcss -i ./src/style/index.scss -o ./dist/output.css --minify --watch",
     "tailwind-minify-builder": "npx tailwindcss -i ./src/index.css -o ./dist/output.css --minify"
   },
@@ -16,6 +19,8 @@
     "babel-runtime": "^6.26.0",
     "element-react": "^1.4.34",
     "element-theme-default": "^1.4.13",
+    "gh-pages": "^4.0.0",
+    "npm": "^8.18.0",
     "path": "^0.12.7",
     "postcss": "^8.4.16",
     "react": "^18.2.0",

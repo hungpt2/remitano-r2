@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import DashboardLayout from '../../layout/Dashboard/DashboardLayout';
+import DashboardLayout from '../../layout/Dashboard';
 import { Loading, Button, Form, Input, Notification } from 'element-react';
 import { useNavigate } from 'react-router-dom';
 import { validateYoutubeURL } from '../../utils/auth';
 import { shareMedia } from '../../services/media';
 import { useBaseState, useBaseDispatch } from '../../context/base';
 
-export const Share = (): JSX.Element => {
+export const Share = (props: any): JSX.Element => {
   const baseDispatch = useBaseDispatch();
   const { userData } = useBaseState();
 
@@ -28,7 +28,7 @@ export const Share = (): JSX.Element => {
     ]
   });
 
-  const onChange = (key: string, value: string) => {
+  const onChange = (key: string, value: React.SyntheticEvent<HTMLInputElement>) => {
     setForm({
       ...form,
       [key]: value,
@@ -78,17 +78,17 @@ export const Share = (): JSX.Element => {
   };
   
   return (
-    <DashboardLayout>
+    <DashboardLayout {...props}>
       <div className='max-w-xl mt-32 mx-auto bg-slate-200 rounded drop-shadow-md p-5'>
         <h2 className="mb-5">Share a youtube movie</h2>
-        <Loading loading={loading}>
-          <Form ref={formRef} model={form} labelWidth='150' rules={formRules}>
-            <Form.Item label='Youtube URL' prop='url'>
-              <Input value={form.url} onChange={(value: string) => onChange('url', value)}></Input>
+        <Loading loading={loading} { ...props }>
+          <Form {...props} ref={formRef} model={form} labelWidth='150' rules={formRules}>
+            <Form.Item {...props} label='Youtube URL' prop='url'>
+              <Input value={form.url} onChange={(value: React.SyntheticEvent<HTMLInputElement>) => onChange('url', value)}></Input>
             </Form.Item>
             <div className='flex justify-between items-center'>
-              <Button onClick={() => onRedirect('/home')}>Back To Home</Button>
-              <Button type='primary' onClick={() => onShare()}>Share</Button>
+              <Button {...props} onClick={() => onRedirect('/home')}>Back To Home</Button>
+              <Button {...props} type='primary' onClick={() => onShare()}>Share</Button>
             </div>
           </Form>
         </Loading>

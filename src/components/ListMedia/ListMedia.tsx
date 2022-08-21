@@ -4,7 +4,7 @@ import { getListMedia } from '../../services/media';
 import { IMedia } from '../../context/base/model';
 import { Loading, Notification } from 'element-react';
 
-export const ListMedia = (): JSX.Element => {
+export const ListMedia = (props: any): JSX.Element => {
   const baseDispatch = useBaseDispatch();
   const { mediaPayload } = useBaseState();
 
@@ -13,7 +13,7 @@ export const ListMedia = (): JSX.Element => {
 
   useEffect(() => {
     setLoading(true);
-    getListMedia(mediaPayload).then((media: IMedia[]) => {
+    getListMedia().then((media: IMedia[]) => {
       setLoading(false);
       setListMedia(media);
     }, (errMessage: string) => {
@@ -27,7 +27,7 @@ export const ListMedia = (): JSX.Element => {
 
   return (
     <div className='w-full h-full p-12 container mx-auto'>
-      <Loading loading={loading}>
+      <Loading loading={loading} { ...props } >
         <React.Fragment>
           <>{
             listMedia.length > 0

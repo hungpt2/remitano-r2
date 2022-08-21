@@ -4,7 +4,7 @@ import { Button } from 'element-react';
 import { useNavigate } from 'react-router-dom';
 import { useBaseState, useBaseDispatch } from '../../context/base';
 
-export const Navbar = (): JSX.Element => {
+export const Navbar = (props: any): JSX.Element => {
   const baseDispatch = useBaseDispatch();
   const { isAuthenticated } = useBaseState();
 
@@ -13,7 +13,7 @@ export const Navbar = (): JSX.Element => {
     navigate(url);
   };
 
-  const onLogout = (url: string) => {
+  const onLogout = () => {
     baseDispatch({ prop: 'isAuthenticated', payload: false });
     navigate('/');
   };
@@ -28,13 +28,13 @@ export const Navbar = (): JSX.Element => {
         {
           !isAuthenticated ?
             <React.Fragment>
-              <Button type='primary' onClick={() => onRedirect('/login')}>Login</Button>
-              <Button onClick={() => onRedirect('/register')}>Register</Button>
+              <Button {...props} type='primary' onClick={() => onRedirect('/login')}>Login</Button>
+              <Button {...props} onClick={() => onRedirect('/register')}>Register</Button>
             </React.Fragment>
             :
             <React.Fragment>
-              <Button type='primary' onClick={() => onRedirect('/share')}>Share a Movie</Button>
-              <Button onClick={() => onLogout()}>Logout</Button>
+              <Button {...props} type='primary' onClick={() => onRedirect('/share')}>Share a Movie</Button>
+              <Button {...props} onClick={() => onLogout()}>Logout</Button>
             </React.Fragment>
         }
       </div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DashboardLayout from '../../layout/Dashboard';
 import { Loading, Button, Form, Input, Notification } from 'element-react';
 import { useNavigate } from 'react-router-dom';
-import { validateYoutubeURL } from '../../utils/auth';
+import { validateYoutubeURL } from '../../utils/validator';
 import { shareMedia } from '../../services/media';
 import { useBaseState, useBaseDispatch } from '../../context/base';
 

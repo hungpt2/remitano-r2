@@ -1,4 +1,3 @@
-import React from 'react';
 import Logo from '../../assets/react.svg';
 import { Button } from 'element-react';
 import { useNavigate } from 'react-router-dom';
@@ -27,15 +26,15 @@ export const Navbar = (props: any): JSX.Element => {
       <div className='flex justify-end items-center'>
         {
           !isAuthenticated ?
-            <React.Fragment>
+            <>
               <Button {...props} type='primary' onClick={() => onRedirect('/login')}>Login</Button>
               <Button {...props} onClick={() => onRedirect('/register')}>Register</Button>
-            </React.Fragment>
+            </>
             :
-            <React.Fragment>
+            <>
               <Button {...props} type='primary' onClick={() => onRedirect('/share')}>Share a Movie</Button>
               <Button {...props} onClick={() => onLogout()}>Logout</Button>
-            </React.Fragment>
+            </>
         }
       </div>
     </div>

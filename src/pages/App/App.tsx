@@ -13,7 +13,7 @@ export const App = () => {
   return (
     <BrowserRouter basename='/remitano-r2'>
       <Routes>
-        <React.Fragment>
+        <>
           <Route path='/' element={<DashboardPage />} />
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/login' element={<LoginPage />} />
@@ -27,7 +27,7 @@ export const App = () => {
               <SharePage />
             </Protected>
           } />
-        </React.Fragment>
+        </>
       </Routes>
     </BrowserRouter>
   );

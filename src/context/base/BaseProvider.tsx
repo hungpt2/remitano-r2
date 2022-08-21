@@ -1,13 +1,8 @@
 import { useMemo, useReducer } from 'react';
-import PropTypes from 'prop-types';
 import { BaseContext } from './BaseContext';
 import { BaseState, BaseAction } from './model';
 
-const propTypes = {
-  children: PropTypes.node,
-};
-
-const userReducer = (state: BaseState, action: BaseAction) => {
+export const userReducer = (state: BaseState, action: BaseAction) => {
   switch (action.type) {
     default: {
       return {
@@ -18,7 +13,7 @@ const userReducer = (state: BaseState, action: BaseAction) => {
   }
 };
 
-export const BaseProvider = ({ children }: any) => {
+export const BaseProvider = ({ children }: { children: JSX.Element }) => {
   const initState: BaseState = {
     loading: false,
     userData: {
@@ -34,5 +29,3 @@ export const BaseProvider = ({ children }: any) => {
 
   return <BaseContext.Provider value={value}>{children}</BaseContext.Provider>;
 };
-
-BaseProvider.propTypes = propTypes;

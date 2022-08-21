@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Loading, Button, Form, Input, Notification } from 'element-react';
 import { useNavigate } from 'react-router-dom';
-import { validateEmail, validatePassword } from '../../utils/auth';
+import { validateEmail, validatePassword } from '../../utils/validator';
 import { useBaseDispatch } from '../../context/base';
 import { IUser } from '../../model/user';
 import { login } from '../../services/auth';

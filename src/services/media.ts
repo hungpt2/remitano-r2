@@ -25,7 +25,7 @@ export const getListMedia = (): Promise<IMedia[]> => {
     data = JSON.parse(mediaData) as IMedia[];
   }
   const mediaParse: IMedia[] = [];
-  data.forEach(async(data: IMedia) => {
+  data.forEach((data: IMedia) => {
     mediaParse.push({
       ...data,
       title: 'string',

@@ -5,10 +5,10 @@ export interface IUser {
 }
 
 export interface FormValidator {
-  field: string;
-  fullField: string;
-  message: string;
-  trigger: string;
-  type: string;
-  validator: Function;
+  field?: string;
+  fullField?: string;
+  message?: string;
+  trigger?: string;
+  type?: string;
+  validator?: Function;
 }

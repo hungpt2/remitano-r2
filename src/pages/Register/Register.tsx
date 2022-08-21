@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Loading, Button, Form, Input, Notification } from 'element-react';
 import { useNavigate } from 'react-router-dom';
 import { register } from '../../services/auth';
-import { validateEmail, validatePassword } from '../../utils/auth';
+import { validateEmail, validatePassword } from '../../utils/validator';
 import { FormValidator } from '../../model/user';
 
 export const Register = (props: any): JSX.Element => {

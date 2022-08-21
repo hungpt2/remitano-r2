@@ -12,8 +12,7 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "tailwind": "npx tailwindcss -i ./src/style/index.scss -o ./dist/output.css --minify --watch",
-    "tailwind-minify-builder": "npx tailwindcss -i ./src/index.css -o ./dist/output.css --minify"
+    "tailwind-minify-builder": "npx tailwindcss -i ./src/style/index.scss -o ./dist/output.css --minify"
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",

@@ -9,6 +9,10 @@ export default defineConfig({
       '@' : path.resolve(__dirname, './src')
     },
   },
+  build: {
+    outDir: './build'
+  },
+  base: '/remitano-r2/',
   esbuild: {
     logOverride: { 'this-is-undefined-in-esm': 'silent' }
   },

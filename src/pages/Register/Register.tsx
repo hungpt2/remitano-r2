@@ -14,8 +14,8 @@ export const Register = (props: any): JSX.Element => {
 
   const formRef: React.RefObject<HTMLFormElement> = React.createRef();
   const [loading, setLoading] = useState(false);
-    const [formUser, setFormUser] = useState({
-    email: '',
+  const [formUser, setFormUser] = useState({
+    email: 'test05@test.com',
     password: '',
     confirm: '',
   });
@@ -25,7 +25,7 @@ export const Register = (props: any): JSX.Element => {
     callback(!isValid ? rule.message : undefined);
   };
 
-  const [formRules] = useState({
+  const [formRules, setRules] = useState({
     email: [
       { required: true, message: 'Please input email', trigger: 'blur' },
       { validator: validateEmail, message: 'Wrong email format', trigger: 'blur' },
@@ -46,6 +46,16 @@ export const Register = (props: any): JSX.Element => {
       ...formUser,
       [key]: value,
     });
+    if (key === 'password') {
+      setRules({
+        ...formRules,
+        confirm: [
+          { required: true, message: 'Please input confirm password', trigger: 'blur' },
+          { validator: validatePassword, message: 'At least 8 characters includes string and number', trigger: 'blur' },
+          { validator: validateConfirmPassword, message: 'Password is NOT the same', trigger: 'blur' },
+        ]
+      })
+    }
   };
 
   const onRegister = () => {

@@ -15,7 +15,7 @@ export const Register = (props: any): JSX.Element => {
   const formRef: React.RefObject<HTMLFormElement> = React.createRef();
   const [loading, setLoading] = useState(false);
   const [formUser, setFormUser] = useState({
-    email: 'test05@test.com',
+    email: '',
     password: '',
     confirm: '',
   });

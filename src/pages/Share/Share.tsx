@@ -18,7 +18,7 @@ export const Share = (props: any): JSX.Element => {
   const formRef: React.RefObject<HTMLFormElement> = React.createRef();
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
-    url: 'https://youtu.be/uzOE3c12w0U',
+    url: '',
   });
 
   const [formRules] = useState({
@@ -78,7 +78,7 @@ export const Share = (props: any): JSX.Element => {
   };
   
   return (
-    <DashboardLayout {...props}>
+    <DashboardLayout>
       <div className='max-w-xl mt-32 mx-auto bg-slate-200 rounded drop-shadow-md p-5'>
         <h2 className="mb-5">Share a youtube movie</h2>
         <Loading loading={loading} { ...props }>

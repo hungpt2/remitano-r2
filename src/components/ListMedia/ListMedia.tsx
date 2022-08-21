@@ -26,7 +26,7 @@ export const ListMedia = (props: any): JSX.Element => {
   }, [mediaPayload]);
 
   return (
-    <div className='w-full h-full p-12 container mx-auto'>
+    <div className='w-full p-12 container mx-auto'>
       <Loading loading={loading} { ...props } >
         <React.Fragment>
           <>{
@@ -52,9 +52,9 @@ const MediaItem = (props: IMediaItemProps): JSX.Element => {
   return (
     <div className='w-full mb-8'>
       <div className='flex justify-start'>
-        <video width="640" height="480" controls src={props.mediaData.url} />
+        <video width="640" height="480" controls src={props.mediaData.url} className='min-w-640' />
         <div className='ml-4'>
-          <h1 className='mb-2 font-bold text-red-600 text-xl'>{ props.mediaData.title }</h1>
+          <h1 className='mb-2 font-bold text-red-600 text-xl'>{ props.mediaData.url }</h1>
           <div className='mb-4 text-base'>Shared by: <strong>{ props.mediaData.author }</strong></div>
           <div className='font-bold text-sm'>Description:</div>
           <div className='text-sm'>{ props.mediaData.description }</div>

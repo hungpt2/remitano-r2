@@ -1,5 +1,9 @@
 import DashboardLayout from './DashboardLayout';
 
-export default (): JSX.Element => {
-  return (<DashboardLayout />)
+interface IDashboardProps {
+  children?: JSX.Element;
+}
+
+export default (props: IDashboardProps): JSX.Element => {
+  return (<DashboardLayout {...props} />)
 };

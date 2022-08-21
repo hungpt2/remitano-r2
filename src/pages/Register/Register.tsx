@@ -46,16 +46,14 @@ export const Register = (props: any): JSX.Element => {
       ...formUser,
       [key]: value,
     });
-    if (key === 'password') {
-      setRules({
-        ...formRules,
-        confirm: [
-          { required: true, message: 'Please input confirm password', trigger: 'blur' },
-          { validator: validatePassword, message: 'At least 8 characters includes string and number', trigger: 'blur' },
-          { validator: validateConfirmPassword, message: 'Password is NOT the same', trigger: 'blur' },
-        ]
-      })
-    }
+    setRules({
+      ...formRules,
+      confirm: [
+        { required: true, message: 'Please input confirm password', trigger: 'blur' },
+        { validator: validatePassword, message: 'At least 8 characters includes string and number', trigger: 'blur' },
+        { validator: validateConfirmPassword, message: 'Password is NOT the same', trigger: 'blur' },
+      ]
+    })
   };
 
   const onRegister = () => {
